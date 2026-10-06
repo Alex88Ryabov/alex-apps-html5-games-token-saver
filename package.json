@@ -31,6 +31,9 @@
   "bin": {
     "html5-games-token-saver": "dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",

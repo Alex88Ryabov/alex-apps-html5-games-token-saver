@@ -1,0 +1,36 @@
+name: publish
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      # only for the first publish: trusted publishing cannot be set up on a package that does not exist
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      # no registry-url: setup-node would write a placeholder auth token
+      # into .npmrc and npm would skip the OIDC exchange
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # trusted publishing needs npm >= 11.5.1
+      - run: npm install -g npm@latest
+      - run: npm ci
+      - run: npm test
+      - name: version agrees with the tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: test "$(jq -r .version package.json)" = "${GITHUB_REF#refs/tags/v}"
+      # with the secret deleted, npm falls back to OIDC
+      - name: token for the first publish
+        if: env.NPM_TOKEN != ''
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run: npm publish
