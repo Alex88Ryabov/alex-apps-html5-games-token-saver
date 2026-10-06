@@ -1,0 +1,50 @@
+{
+  "name": "@alex-apps/html5-games-token-saver",
+  "version": "0.1.0",
+  "description": "MCP server for CrazyGames HTML5 games: build, SDK and layout checks against the portal rules as dense JSON instead of screenshots and ad-hoc scripts",
+  "license": "GPL-3.0-or-later",
+  "author": "Alex Ryabov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex88Ryabov/alex-apps-html5-games-token-saver.git"
+  },
+  "homepage": "https://github.com/Alex88Ryabov/alex-apps-html5-games-token-saver#readme",
+  "bugs": "https://github.com/Alex88Ryabov/alex-apps-html5-games-token-saver/issues",
+  "keywords": [
+    "crazygames",
+    "html5-games",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "playwright",
+    "tokens"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "type": "module",
+  "bin": {
+    "html5-games-token-saver": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "tsc && node --test",
+    "smoke": "node tools/mcp-smoke.mjs",
+    "prepublishOnly": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.5",
+    "playwright-core": "1.63.0",
+    "typescript": "5.9.3"
+  }
+}

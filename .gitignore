@@ -1,0 +1,12 @@
+node_modules/
+/dist/
+
+# Internal working documents — local only
+CLAUDE.md
+
+# Screenshots the audit saves for failed checkpoints
+.cg-shots/
+
+*.log
+.idea/
+.vscode/

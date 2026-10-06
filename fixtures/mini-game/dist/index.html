@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini game</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
+  </head>
+  <body>
+    <div id="hud">
+      <button id="play">Play</button>
+      <button id="settings">Settings</button>
+      <span id="score">0</span>
+    </div>
+    <div id="offer" class="row">
+      <button id="rewarded">Watch video</button>
+      <button id="skip">No thanks</button>
+    </div>
+    <div id="settings-dialog" role="dialog" aria-label="settings" hidden>
+      <p class="hint">Sound and language</p>
+      <button id="close">Close</button>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>

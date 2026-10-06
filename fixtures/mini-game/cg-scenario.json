@@ -1,0 +1,11 @@
+{
+  "steps": [
+    { "click": "#play" },
+    { "wait": 300 },
+    { "click": "#settings" },
+    { "check": "settings" },
+    { "wait": 300 },
+    { "click": "#close" },
+    { "rewardedTwice": "#rewarded" }
+  ]
+}

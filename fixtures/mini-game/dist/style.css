@@ -1,0 +1,42 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font: 16px sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+.row button {
+  width: 140px;
+  height: 44px;
+}
+.row.unequal #skip {
+  width: 80px;
+  height: 30px;
+}
+[role='dialog'] {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  width: 300px;
+  padding: 16px;
+  background: #eee;
+}
+[role='dialog'][hidden] {
+  display: none;
+}
+[role='dialog'].tall {
+  height: 900px;
+}
+.small .hint {
+  font-size: 10px;
+}
